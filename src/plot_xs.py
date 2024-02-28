@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import ROOT
 
-from xs_scan.cross_section import calculate_xs
+from xs_scan import calculate_xs
 
 ufo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "model", "vLQ_UFO")
 # # You also can use path like this

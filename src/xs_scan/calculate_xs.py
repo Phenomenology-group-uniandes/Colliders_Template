@@ -52,10 +52,12 @@ def calculate_xs(
         shutil.rmtree(output)
         os.makedirs(output, exist_ok=True)
     with open("process.mg5", "w") as f:
+        # Create the process
         f.write(f"import model {ufo_path}\n")
         f.write("define p = p b b~\n")
         f.write("generate p p > ta+ ta- QED=0 QCD=0\n")
         f.write(f"output {output} -nojpeg\n")
+        # Launch the process
         f.write(f"launch {output} -m\n")
         f.write(f"{n_workers}\n")
         # Set the param_card
@@ -63,12 +65,14 @@ def calculate_xs(
         # Set the run_card
         f.write(f"set iseed {seed}\n")  # 0: let MG5 choose the seed
         f.write(f"set nevents {n_events}\n")
-        f.write("set sde_strategy 1\n")  # 1: use the exact matrix element
+        f.write(f"set sde_strategy {1}\n")  # 1: use the exact matrix element (slow)
         f.write("done\n")
     # Run MG5
     Popen([mg5_bin_path, "process.mg5"]).wait()
     # copy the mg5 file to the output directory
     shutil.copy("process.mg5", output)
+
+    # Get the cross section from the html file
     with open(os.path.join(output, "crossx.html")) as f:
         html_string = f.read()
     t = pd.read_html(StringIO(html_string))[0]
