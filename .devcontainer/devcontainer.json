@@ -16,7 +16,8 @@
         "pkief.material-icon-theme",
         "github.copilot",
         "mutantdino.resourcemonitor",
-        "foxundermoon.shell-format"
+        "foxundermoon.shell-format",
+        "liaoningnormaluniversity.vscodefeynrules"
       ]
     }
   }
