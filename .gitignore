@@ -1,3 +1,9 @@
+# madgraph stuff
+py.py
+MG5_debug
+*.lhe*
+py3*.pkl
+outputs/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
