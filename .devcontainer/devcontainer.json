@@ -1,0 +1,23 @@
+{
+  "name": "ColliderPhenoTools",
+  "image": "jjonesperez/pucp-madgraph-pythia-delphes:0.7",
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "python3 -m pip install --upgrade pip && pip3 install -r requirements.txt && pip3 install -r src/hep_pheno_tools/requirements.txt",
+  "customizations": {
+    "codespaces": {
+      "openFiles": []
+    },
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.isort",
+        "pkief.material-icon-theme",
+        "github.copilot",
+        "mutantdino.resourcemonitor",
+        "foxundermoon.shell-format"
+      ]
+    }
+  }
+}
