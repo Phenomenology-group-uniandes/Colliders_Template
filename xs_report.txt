@@ -5,7 +5,7 @@ UFO model path: /disco4/personal_folders/c.rodriguez45/github/Colliders_Template
 MG5 binary path: /Collider/MG5_aMC_v3_1_0/bin/mg5_aMC
 Outputs directory: /disco4/personal_folders/c.rodriguez45/github/Colliders_Template/outputs
 Number of workers: 14
-Number of events per run: 1000
+Number of events per run: 100000
 Coupling parameters:
 gu = 0.5
 betal33 = 1.0
@@ -18,17 +18,17 @@ mvlq = 3500.0
 wvlq = auto
 Results:
  mass       xs
- 0.50 0.028940
- 0.75 0.007054
- 1.00 0.002491
- 1.25 0.001078
- 1.50 0.000536
- 1.75 0.000301
- 2.00 0.000178
- 2.25 0.000114
- 2.50 0.000076
+ 0.50 0.029410
+ 0.75 0.007039
+ 1.00 0.002426
+ 1.25 0.001071
+ 1.50 0.000540
+ 1.75 0.000299
+ 2.00 0.000179
+ 2.25 0.000113
+ 2.50 0.000075
  2.75 0.000052
- 3.00 0.000036
+ 3.00 0.000037
  3.25 0.000027
  3.50 0.000020
 ================================================================================

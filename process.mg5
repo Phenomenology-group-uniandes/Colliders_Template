@@ -1,0 +1,19 @@
+import model /disco4/personal_folders/c.rodriguez45/github/Colliders_Template/model/vLQ_UFO
+define p = p b b~
+generate p p > ta+ ta- QED=0 QCD=0
+output /disco4/personal_folders/c.rodriguez45/github/Colliders_Template/outputs/xs_vlQ_3.50TeV -nojpeg
+launch /disco4/personal_folders/c.rodriguez45/github/Colliders_Template/outputs/xs_vlQ_3.50TeV -m
+14
+set GU 0.5
+set BETAL33 1.0
+set BETARD33 -1.0
+set BETAL23 0.0
+set BETAL32 0.0
+set KAPPAU 0.0
+set KAPPAUTILDE 0.0
+set MVLQ 3500.0
+set WVLQ auto
+set iseed 65636
+set nevents 100000
+set sde_strategy 1
+done

@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import ROOT
 
-from xs_scan import calculate_xs
+from xs_scan import calculate_cross_section
 
 ufo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "model", "vLQ_UFO")
 # # You also can use path like this
@@ -20,7 +20,7 @@ plot_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "pdfs")
 n_cores = mp.cpu_count()
 n_workers = n_cores - 2 if n_cores > 2 else 1
 
-n_events = int(1e3)
+n_events = int(1e5)
 
 print("Loading UFO model from:\n", ufo_path)
 print("Using MG5 binary from:\n", mg5_bin_path)
@@ -51,7 +51,7 @@ seeds = []
 
 
 def get_xs(mass: float):
-    xs = calculate_xs(
+    xs = calculate_cross_section(
         mass,
         params_dict,
         ufo_path,
