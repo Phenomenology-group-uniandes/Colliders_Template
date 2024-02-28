@@ -1,0 +1,3 @@
+[submodule "src/hep_pheno_tools"]
+	path = src/hep_pheno_tools
+	url = https://github.com/Phenomenology-group-uniandes/hep_pheno_tools.git
