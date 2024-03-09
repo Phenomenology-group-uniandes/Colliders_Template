@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import ROOT
 
-from xs_scan import calculate_cross_section
+from . import calculate_cross_section
 
 ufo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "model", "vLQ_UFO")
 # # You also can use path like this
@@ -31,10 +31,10 @@ print("Using", n_events, "events per run")
 # Set coupling parameters for the scan
 params_dict = {
     # mg5_name: value
-    "gu": 5.000000e-01,
+    "gu": 1.000000e-00,
     "betal33": 1.000000e00,
     "betard33": -1.000000e00,
-    "betal23": 0.000000e00,
+    "betal23": 0.200000e00,
     "betal32": 0.000000e00,
     "kappau": 0.000000e00,
     "kappautilde": 0.000000e00,
@@ -118,7 +118,4 @@ with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "xs_report.tx
     f.write("=" * 80 + "\n")
 
 # Print the report
-[
-    print(line)
-    for line in open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "xs_report.txt"))
-]
+list(map(print, open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "xs_report.txt"))))

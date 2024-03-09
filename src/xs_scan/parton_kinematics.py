@@ -8,6 +8,7 @@ from hep_pheno_tools.lhe_reader import get_event_by_child, readLHEF
 
 masses = np.array([0.5, 1.5, 2.5, 3.5])
 colors = {
+    # mass: color
     "0.5": ROOT.kRed,
     "1.5": ROOT.kBlue,
     "2.5": ROOT.kGreen,
@@ -63,14 +64,12 @@ def get_kinematics_df(mass: float) -> pd.DataFrame:
 
 
 # draw "reco_mass" for each mass in the same plot
-
+observable = "reco_mass"
 histos = []
 for mass in masses:
     df = get_kinematics_df(mass)
-    histo = ROOT.TH1F(
-        f"reco_mass_{mass:.2f}TeV", f"Reconstructed mass for {mass:.2f} TeV", 50, 0, 2000
-    )
-    df["reco_mass"].apply(histo.Fill)
+    histo = ROOT.TH1F(f"{observable}_{mass:.2f}TeV", "", 50, 0, 2000)
+    df[observable].apply(histo.Fill)
     histo.Scale(1 / histo.Integral())  # normalize
     histo.SetLineColor(colors[str(mass)])
     histo.SetLineWidth(2)
@@ -84,4 +83,4 @@ for h in histos[1:]:
     h.Draw("hist same")
 canva.Draw()
 canva.BuildLegend()
-canva.SaveAs(os.path.join(os.path.dirname(outputs_dir), "pdfs", "reco_mass.pdf"))
+canva.SaveAs(os.path.join(os.path.dirname(outputs_dir), "pdfs", "observable.pdf"))
